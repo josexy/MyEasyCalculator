@@ -6,7 +6,44 @@
 #include "Reader.h"
 using std::unordered_map;
 
+#ifdef WIN32
+using Integer = int64_t;
+#define __xpow powl
+#define __xsqrt sqrtl
+#define __xceil ceill
+#define __xcos cosl
+#define __xsin sinl
+#define __xtan tanl
+#define __xlog logl
+#define __xlog2 log2l
+#define __xlog10 log10l
+#define __xfloor floorl
+#define __xasin asinl
+#define __xacos acosl
+#define __xatan atanl
+#define __xexp expl
+#define __xround roundl
+#define __xerf erfl
+#else 
 using Integer = __int64_t;
+#define __xpow powf64
+#define __xsqrt sqrtf64
+#define __xceil ceilf64
+#define __xcos cosf64
+#define __xsin sinf64
+#define __xtan tanf64
+#define __xlog logf64
+#define __xlog2 log2f64
+#define __xlog10 log10f64
+#define __xfloor floorf64
+#define __xasin asinf64
+#define __xacos acosf64
+#define __xatan atanf64
+#define __xexp expf64
+#define __xround roundf64
+#define __xerf erff64
+#endif 
+
 
 // PS: 其他进制数在词法解析时转化为10进制
 enum class Tag {
