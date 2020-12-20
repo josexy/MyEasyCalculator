@@ -19,7 +19,9 @@ class Reader {
 
     explicit Reader(ifstream& ifs) {
         char c;
-        while (~(c = ifs.get())) __sbuffer[__len++] = c;
+        string s;
+        while (~(c = ifs.get())) s += c;
+        set_buffer(s);
     }
     ~Reader() {
         if (__sbuffer) delete[] __sbuffer;
