@@ -16,14 +16,15 @@ class Lexer {
 
     // 一元函数
     unordered_map<string, function<double(double)>> unary_functions = {
-        {"sqrt", sqrtf},   {"ceil", ceilf}, {"cos", cosf},     {"sin", sinf},
-        {"tan", tanf},     {"log", logf},   {"floor", floorf}, {"acos", acosf},
-        {"asin", asinf},   {"atan", atanf}, {"exp", expf},     {"log2", log2f},
-        {"log10", log10f}, {"erf", erff},   {"round", roundf}};
+        {"sqrt", __xsqrt},   {"ceil",__xceil}, {"cos", __xcos},
+        {"sin", __xsin},     {"tan", __xtan},   {"log", __xlog},
+        {"floor", __xfloor}, {"acos", __xacos}, {"asin", __xasin},
+        {"atan", __xatan},   {"exp", __xexp},   {"log2", __xlog2},
+        {"log10", __xlog10}, {"erf",__xerf},   {"round", __xround}};
 
     // 二元函数
     unordered_map<string, function<double(double, double)>> binary_functions = {
-        {"pow", powf},
+        {"pow", __xpow},
         {"max", [](double x, double y) { return x > y ? x : y; }},
         {"min", [](double x, double y) { return x < y ? x : y; }}};
 
