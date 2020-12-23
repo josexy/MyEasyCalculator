@@ -398,7 +398,8 @@ class Lexer {
    protected:
     // 一些辅助函数
     bool ishex(char c) {
-        return (c >= '0' && c <= 'f') || (c >= '0' && c <= 'F');
+        return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f') ||
+               (c >= 'A' && c <= 'F');
     }
     bool isdigit(char c) { return c >= '0' && c <= '9'; }
     bool isbin(char c) { return c == '0' || c == '1'; }
