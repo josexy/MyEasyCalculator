@@ -41,8 +41,10 @@ make
 ```cpp
 #include <iostream>
 
-#include "Calculator/ExpressionTree.h"
-#include "Calculator/Test.h"
+#include "Calculator/include/ExpressionTree.h"
+#include "Calculator/include/Test.h"
+using namespace calculator;
+using namespace std;
 
 int main() {
     expression_test();
@@ -53,14 +55,9 @@ int main() {
         getline(cin, line);
         if (line.empty()) continue;
         try {
-            et.parseExpression(line);
-            int j = 0;
-            auto root = et.buildTreeInfix(j);
-            if (root) {
-                double x = et.calcValue(root);
-                cout.precision(10);
-                cout << fixed << "=> " << x << endl;
-            }
+            double x = et.calcExpression(line);
+            cout.precision(10);
+            cout << fixed << "=> " << x << endl;
         } catch (SyntaxError &e) {
             cout << e.what() << endl;
             cin.ignore();
